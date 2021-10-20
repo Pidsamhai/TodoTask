@@ -1,0 +1,24 @@
+CREATE TABLE Task (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    isCompleted INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    timeStamp INTEGER NOT NULL
+);
+
+deleteAllTasks:
+DELETE FROM Task;
+
+getAllTasks:
+SELECT * FROM Task;
+
+getTask:
+SELECT * FROM Task WHERE id = ?;
+
+deleteTask:
+DELETE FROM Task WHERE id = ?;
+
+insertTask:
+INSERT INTO Task (id, title, isCompleted, timeStamp) VALUES (?, ?, ?, ?);
+
+updateCompleted:
+UPDATE Task SET isCompleted = ? WHERE id = ?;
