@@ -28,7 +28,8 @@ import java.util.*
 @Composable
 fun TodoListPage(
     navigateToAddTask: () -> Unit,
-    viewModel: TaskListViewModel
+    viewModel: TaskListViewModel,
+    openDrawer: () -> Unit = { }
 ) {
     val tasks by viewModel.tasks.collectAsState(initial = listOf())
     TodoListPageContent(
@@ -36,7 +37,8 @@ fun TodoListPage(
         tasks = tasks,
         toggleCompleted = {
             viewModel.toggleCompleted(it)
-        }
+        },
+        openDrawer = openDrawer
     )
 }
 
@@ -44,11 +46,14 @@ fun TodoListPage(
 private fun TodoListPageContent(
     navigateToAddTask: () -> Unit,
     tasks: List<Task>,
-    toggleCompleted: (id: String) -> Unit
+    toggleCompleted: (id: String) -> Unit,
+    openDrawer: () -> Unit = { }
 ) {
     val tasksScrollState = rememberScrollState()
     Scaffold(
-        topBar = { TodoListTopAppbar() },
+        topBar = {
+            TodoListTopAppbar(openDrawer = openDrawer)
+        },
         floatingActionButton = {
             FloatingActionButton(
                 onClick = navigateToAddTask

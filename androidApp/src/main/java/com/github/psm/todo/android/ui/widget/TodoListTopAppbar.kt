@@ -17,7 +17,9 @@ import androidx.compose.ui.unit.dp
 import com.github.psm.todo.android.ui.theme.TodoApplicationTheme
 
 @Composable
-fun TodoListTopAppbar() {
+fun TodoListTopAppbar(
+    openDrawer: () -> Unit = { }
+) {
     TopAppBar(
         elevation = 0.dp
     ) {
@@ -29,7 +31,7 @@ fun TodoListTopAppbar() {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 IconButton(
-                    onClick = { /*TODO*/ }
+                    onClick = openDrawer
                 ) {
                     Icon(
                         imageVector = Icons.Rounded.Menu,
