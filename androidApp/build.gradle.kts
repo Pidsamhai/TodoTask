@@ -18,6 +18,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.3.1")
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.20.0")
 //    implementation("androidx.compose.runtime:runtime-livedata:$composeVersion")
 //    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion")
 //    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion")

@@ -4,6 +4,7 @@
     package="com.github.psm.todo.android">
 
     <application
+        android:label="Todo Task"
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar"

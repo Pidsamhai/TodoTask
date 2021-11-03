@@ -2,9 +2,10 @@ package com.github.psm.todo.db
 
 import com.github.psm.shared.db.AppDatabase
 import com.github.psm.shared.db.Task
+import com.github.psm.todo.utils.CommonFlow
+import com.github.psm.todo.utils.asCommonFlow
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 
 class TodoDataBase(databaseDriverFactory: DatabaseDriverFactory) {
@@ -19,6 +20,13 @@ class TodoDataBase(databaseDriverFactory: DatabaseDriverFactory) {
         return database.appdatabaseQueries.getAllTasks()
             .asFlow()
             .mapToList()
+    }
+
+    fun getAllTaskCommon(): CommonFlow<List<Task>> {
+        return database.appdatabaseQueries.getAllTasks()
+            .asFlow()
+            .mapToList()
+            .asCommonFlow()
     }
 
     fun getTask(id: String): Task? {

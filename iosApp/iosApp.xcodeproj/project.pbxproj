@@ -7,8 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7555FF83242A565900829871 /* TaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* TaskListPage.swift */; };
+		CA03149D2732A0D900B35A2F /* DrawerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA03149C2732A0D900B35A2F /* DrawerMenuItem.swift */; };
+		CA0954AF2722B6510090707C /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0954AE2722B6510090707C /* CategoryItem.swift */; };
+		CA0954B12722C9890090707C /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0954B02722C9890090707C /* ViewExt.swift */; };
+		CA0954B32722CC540090707C /* AddTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0954B22722CC540090707C /* AddTaskPage.swift */; };
+		CA0954B52722D0650090707C /* iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0954B42722D0650090707C /* iosApp.swift */; };
+		CA1E31C327215F4D00553CED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E31C227215F4D00553CED /* ViewModel.swift */; };
+		CAA7D87727268CBC00F31816 /* DrawerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7D87627268CBC00F31816 /* DrawerContentView.swift */; };
+		CAA7D87927268D4500F31816 /* CustomAppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7D87827268D4500F31816 /* CustomAppBar.swift */; };
+		CAA7D87D2726A32D00F31816 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7D87C2726A32D00F31816 /* Color.swift */; };
+		CAA7D87F2726A3DB00F31816 /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA7D87E2726A3DB00F31816 /* Resource.xcassets */; };
+		CAA7D8812726A54600F31816 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7D8802726A54600F31816 /* StatusBarController.swift */; };
+		CAA7D88A2726B47400F31816 /* ProfileWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7D8892726B47400F31816 /* ProfileWidget.swift */; };
+		CAB271EA2727EE3B00A80CCC /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB271E92727EE3B00A80CCC /* TaskItem.swift */; };
+		CAB271EC2727F33D00A80CCC /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB271EB2727F33D00A80CCC /* UndoButton.swift */; };
+		CACE71162725E04F0049B32D /* AppDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE71152725E04F0049B32D /* AppDrawer.swift */; };
+		CAEE2E1127216A8D0010A296 /* ModelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE2E1027216A8D0010A296 /* ModelExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +40,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF82242A565900829871 /* TaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPage.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA03149C2732A0D900B35A2F /* DrawerMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenuItem.swift; sourceTree = "<group>"; };
+		CA0954AE2722B6510090707C /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		CA0954B02722C9890090707C /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
+		CA0954B22722CC540090707C /* AddTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPage.swift; sourceTree = "<group>"; };
+		CA0954B42722D0650090707C /* iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosApp.swift; sourceTree = "<group>"; };
+		CA1E31C227215F4D00553CED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CAA7D87627268CBC00F31816 /* DrawerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentView.swift; sourceTree = "<group>"; };
+		CAA7D87827268D4500F31816 /* CustomAppBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppBar.swift; sourceTree = "<group>"; };
+		CAA7D87C2726A32D00F31816 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CAA7D87E2726A3DB00F31816 /* Resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resource.xcassets; sourceTree = "<group>"; };
+		CAA7D8802726A54600F31816 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		CAA7D8892726B47400F31816 /* ProfileWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWidget.swift; sourceTree = "<group>"; };
+		CAB271E92727EE3B00A80CCC /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
+		CAB271EB2727F33D00A80CCC /* UndoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButton.swift; sourceTree = "<group>"; };
+		CACE71152725E04F0049B32D /* AppDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDrawer.swift; sourceTree = "<group>"; };
+		CAEE2E1027216A8D0010A296 /* ModelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +92,12 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				7555FF82242A565900829871 /* ContentView.swift */,
+				CAA7D8882726AF8D00F31816 /* Model */,
+				CAA7D8872726AF5300F31816 /* Resource */,
+				CAA7D8842726AEFC00F31816 /* ViewModel */,
+				CAA7D8822726AEAF00F31816 /* View */,
 				7555FF8C242A565B00829871 /* Info.plist */,
-				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				CA0954B42722D0650090707C /* iosApp.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -74,6 +107,74 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAA7D8822726AEAF00F31816 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAA7D8862726AF2900F31816 /* Utility */,
+				CAA7D8852726AF1800F31816 /* Widget */,
+				CAA7D8832726AEB500F31816 /* Page */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAA7D8832726AEB500F31816 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				CAA7D87627268CBC00F31816 /* DrawerContentView.swift */,
+				7555FF82242A565900829871 /* TaskListPage.swift */,
+				CA0954B22722CC540090707C /* AddTaskPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		CAA7D8842726AEFC00F31816 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA1E31C227215F4D00553CED /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CAA7D8852726AF1800F31816 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				CACE71152725E04F0049B32D /* AppDrawer.swift */,
+				CA0954AE2722B6510090707C /* CategoryItem.swift */,
+				CAA7D87827268D4500F31816 /* CustomAppBar.swift */,
+				CAA7D8892726B47400F31816 /* ProfileWidget.swift */,
+				CAB271E92727EE3B00A80CCC /* TaskItem.swift */,
+				CAB271EB2727F33D00A80CCC /* UndoButton.swift */,
+				CA03149C2732A0D900B35A2F /* DrawerMenuItem.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		CAA7D8862726AF2900F31816 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CA0954B02722C9890090707C /* ViewExt.swift */,
+				CAA7D8802726A54600F31816 /* StatusBarController.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CAA7D8872726AF5300F31816 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CAA7D87E2726A3DB00F31816 /* Resource.xcassets */,
+				CAA7D87C2726A32D00F31816 /* Color.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CAA7D8882726AF8D00F31816 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAEE2E1027216A8D0010A296 /* ModelExt.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,7 +207,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = orgName;
+				ORGANIZATIONNAME = PSM;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -136,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA7D87F2726A3DB00F31816 /* Resource.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,8 +268,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				CA03149D2732A0D900B35A2F /* DrawerMenuItem.swift in Sources */,
+				CAA7D87927268D4500F31816 /* CustomAppBar.swift in Sources */,
+				CACE71162725E04F0049B32D /* AppDrawer.swift in Sources */,
+				CAA7D87D2726A32D00F31816 /* Color.swift in Sources */,
+				CA0954B52722D0650090707C /* iosApp.swift in Sources */,
+				CA1E31C327215F4D00553CED /* ViewModel.swift in Sources */,
+				CAA7D87727268CBC00F31816 /* DrawerContentView.swift in Sources */,
+				7555FF83242A565900829871 /* TaskListPage.swift in Sources */,
+				CA0954AF2722B6510090707C /* CategoryItem.swift in Sources */,
+				CAA7D88A2726B47400F31816 /* ProfileWidget.swift in Sources */,
+				CAA7D8812726A54600F31816 /* StatusBarController.swift in Sources */,
+				CA0954B32722CC540090707C /* AddTaskPage.swift in Sources */,
+				CA0954B12722C9890090707C /* ViewExt.swift in Sources */,
+				CAEE2E1127216A8D0010A296 /* ModelExt.swift in Sources */,
+				CAB271EA2727EE3B00A80CCC /* TaskItem.swift in Sources */,
+				CAB271EC2727F33D00A80CCC /* UndoButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +409,6 @@
 		7555FFA6242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
@@ -317,7 +432,6 @@
 		7555FFA7242A565B00829871 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";

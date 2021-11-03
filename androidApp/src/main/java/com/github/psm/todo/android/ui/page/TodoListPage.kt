@@ -1,34 +1,42 @@
 package com.github.psm.todo.android.ui.page
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.psm.shared.db.Task
 import com.github.psm.todo.android.ui.theme.ContentHorizonPadding
+import com.github.psm.todo.android.ui.theme.IconColor
 import com.github.psm.todo.android.ui.theme.TextColor
 import com.github.psm.todo.android.ui.theme.TodoApplicationTheme
-import com.github.psm.todo.android.ui.widget.CategoryItem
-import com.github.psm.todo.android.ui.widget.TaskItem
-import com.github.psm.todo.android.ui.widget.TodoListTopAppbar
+import com.github.psm.todo.android.ui.widget.*
 import com.github.psm.todo.android.viewModel.TaskListViewModel
-import kotlinx.coroutines.flow.observeOn
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.*
 
 @Composable
 fun TodoListPage(
     navigateToAddTask: () -> Unit,
-    viewModel: TaskListViewModel
+    viewModel: TaskListViewModel,
+    openDrawer: () -> Unit = { }
 ) {
     val tasks by viewModel.tasks.collectAsState(initial = listOf())
     TodoListPageContent(
@@ -36,7 +44,9 @@ fun TodoListPage(
         tasks = tasks,
         toggleCompleted = {
             viewModel.toggleCompleted(it)
-        }
+        },
+        openDrawer = openDrawer,
+        onDelete = { viewModel.deleteTask(it) }
     )
 }
 
@@ -44,11 +54,18 @@ fun TodoListPage(
 private fun TodoListPageContent(
     navigateToAddTask: () -> Unit,
     tasks: List<Task>,
-    toggleCompleted: (id: String) -> Unit
+    toggleCompleted: (id: String) -> Unit,
+    openDrawer: () -> Unit = { },
+    onDelete: (String) -> Unit = { }
 ) {
-    val tasksScrollState = rememberScrollState()
+
+    val scope = rememberCoroutineScope()
+    var job: Job? = null
+
     Scaffold(
-        topBar = { TodoListTopAppbar() },
+        topBar = {
+            TodoListTopAppbar(openDrawer = openDrawer)
+        },
         floatingActionButton = {
             FloatingActionButton(
                 onClick = navigateToAddTask
@@ -114,17 +131,88 @@ private fun TodoListPageContent(
                 style = MaterialTheme.typography.subtitle2,
             )
 
-            Column(
+            LazyColumn(
                 modifier = Modifier
-                    .verticalScroll(tasksScrollState)
             ) {
-                tasks.forEach {
-                    TaskItem(
-                        click = { id ->
-                                toggleCompleted(id)
+                items(tasks) { item ->
+                    var state: SwipeState by remember {
+                        mutableStateOf(SwipeState.Close)
+                    }
+
+                    when (state) {
+                        SwipeState.Close -> job?.cancel()
+                        SwipeState.Open -> {
+                            job = scope.launch {
+                                delay(1000)
+                                onDelete(item.id)
+                                state = SwipeState.Close
+                            }
+                        }
+                    }
+
+                    SwipeToDeleteItem(
+                        swipeState = state,
+                        onSwipe = {
+                            state = it
                         },
-                        task = it,
-                        color = Color.Green
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(4.dp),
+                        content = {
+                            TaskItem(
+                                modifier = Modifier
+                                    .background(Color.White)
+                                    .fillMaxWidth()
+                                    .padding(8.dp),
+                                click = { id ->
+                                    toggleCompleted(id)
+                                },
+                                task = item,
+                                color = Color.Red
+                            )
+                        },
+                        actions = {
+                            Text(
+                                modifier = Modifier
+                                    .padding(horizontal = 8.dp)
+                                    .clip(CircleShape)
+                                    .clickable {
+                                        state = SwipeState.Close
+                                    }
+                                    .border(
+                                        width = 2.dp,
+                                        brush = SolidColor(IconColor),
+                                        shape = CircleShape
+                                    )
+                                    .padding(
+                                        vertical = 6.dp,
+                                        horizontal = 12.dp
+                                    ),
+                                text = "Undo",
+                                color = IconColor
+                            )
+                        },
+                        actionWidth = 72.dp,
+                        hint = {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .background(Color.White),
+                                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Rounded.Delete,
+                                    contentDescription = "delete",
+                                    tint = IconColor
+                                )
+
+                                Text(
+                                    text = "The task was deleted",
+                                    color = IconColor
+                                )
+                            }
+                        }
                     )
                 }
             }

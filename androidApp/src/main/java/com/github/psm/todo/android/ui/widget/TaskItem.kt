@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.psm.shared.db.Task
 import com.github.psm.todo.android.R
+import com.github.psm.todo.android.ui.theme.ShadowColor
 import com.github.psm.todo.android.ui.theme.TodoApplicationTheme
 import java.util.*
 
@@ -29,9 +30,7 @@ fun TaskItem(
         modifier = modifier
             .clickable {
                 click(task.id)
-            }
-            .fillMaxWidth()
-            .padding(16.dp),
+            },
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Icon(
@@ -40,7 +39,7 @@ fun TaskItem(
                 else R.drawable.ic_unchecked_circle
             ),
             contentDescription = "Complete state icon",
-            tint = color
+            tint = if(task.isCompleted) ShadowColor else color
         )
 
         Text(
@@ -75,10 +74,23 @@ private fun TaskItemPrev() {
 
     TodoApplicationTheme {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
         ) {
-            TaskItem(task = first, color = Color.Red)
-            TaskItem(task = second, color = Color.Green)
+            TaskItem(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                task = first,
+                color = Color.Red
+            )
+            TaskItem(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                task = second,
+                color = Color.Green
+            )
         }
     }
 }
